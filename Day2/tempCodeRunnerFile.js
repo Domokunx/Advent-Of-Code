@@ -1,0 +1,1 @@
+roundScore(guide[0])
