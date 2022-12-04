@@ -85,7 +85,7 @@ function splitRucksack(rucksack){
     }
 }
 
-
+// Get the priority value for the common item
 function prioritiseItems(item){
     return (priorityValues.get(item))
 }
@@ -111,16 +111,16 @@ splitGroupsOfThree(rucksack);
 let totalBadgePriority = 0;
 
 groupArr.forEach(group => {
-    let rucksack1 = group[0];
-    let rucksack2 = group[1];
-    let rucksack3 = group[2];
+    let [rucksack1, rucksack2, rucksack3] = [...group]
     let commonItem = undefined;
 
+    //Compare first 2 rucksacks for a common item
     for (let i = 0; i < rucksack1.length; i++) {
         for (let j = 0; j < rucksack2.length; j++) {
             if (rucksack2[j] === rucksack1[i]){
                 commonItem = rucksack1[i]
                 
+                //Check if it is all common in the 3rd rucksack
                 for (let k = 0; k < rucksack3.length; k++) {
                     if (commonItem === rucksack3[k]) {
                         return totalBadgePriority += priorityValues.get(commonItem);
