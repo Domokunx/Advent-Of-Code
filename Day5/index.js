@@ -1,7 +1,5 @@
 // Find the topmost crates from left to right
-const { Console } = require('console');
 const {readFileSync} = require ('fs');
-const { compileFunction } = require('vm');
 
 function syncReadFile(filename) {
     const contents = readFileSync(filename, 'utf-8');
