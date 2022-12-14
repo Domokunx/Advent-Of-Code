@@ -1,0 +1,1 @@
+console.log(updateDir(dirArr[0]))
