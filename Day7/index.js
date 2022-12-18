@@ -52,14 +52,17 @@ commands.forEach(command => {
         identifyDir(command);
     }
 
+    // ls only lists files inside the dir, doesn't help us much
     else if (command.includes('$ ls')){
         return;
     }
 
+    // dir on its own means it is present in the current dir, can use to track our path
     else if (command.includes('dir')){
         currentDir.dirInside.push(command.split(' ')[1]);
     }
 
+    // anything with numbers is a file with size of that number, use command to add to dir size
     else if (Number.isInteger(parseInt(command.split(' ')[0]))){
         currentDir.size += parseInt(command.split(' ')[0]);
     }
